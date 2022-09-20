@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RazorPagesAndAngular.Web/obj
+/RazorPagesAndAngular.Web/bin
+/.vs
+/RazorPagesAndAngular.Web/wwwroot/app

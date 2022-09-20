@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RazorPagesAndAngular.Web</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RazorPagesAndAngular.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/app/styles.css">
+</head>
+<body>
+    @RenderBody()
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/app/runtime.js" type="module"></script>
+    <script src="~/app/polyfills.js" type="module"></script>
+    <script src="~/app/vendor.js" type="module"></script>
+    <script src="~/app/main.js" type="module"></script>
+</body>
+</html>

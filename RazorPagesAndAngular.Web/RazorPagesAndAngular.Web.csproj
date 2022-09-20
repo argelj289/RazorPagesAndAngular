@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<SpaRoot>ClientApp\</SpaRoot>
+		<DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)\node_modules\**</DefaultItemExcludes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.9" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="6.0.8" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="1.25.3" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="1.25.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\app\" />
+	</ItemGroup>
+
+
+	<Target Name="BuildAngularFiles" BeforeTargets="Build">
+		<Message Text="start NPM run build" Importance="high" />
+		<PropertyGroup>
+			<NpmBuildCommand Condition="'$(Configuration)' == 'Release'">ngbuildprod</NpmBuildCommand>
+			<NpmBuildCommand Condition="'$(Configuration)' == 'Debug'">ngbuilddev</NpmBuildCommand>
+		</PropertyGroup>
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run $(NpmBuildCommand)" />
+	</Target>
+
+</Project>
